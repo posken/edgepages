@@ -1,0 +1,88 @@
+---
+title: 在 Windows 下，使用 npm 全域安裝 n8n
+slug: n8n-npm-global
+date: 2025-08-21
+description: 全域安裝會讓你在任何目錄下直接執行 n8n 來啟動服務
+tags: ["n8n安裝"]
+imgurl: 
+---
+
+
+### ✅安裝 node.js
+
+至 <a href="https://nodejs.org/zh-tw/download" target="_blank" rel="noopener noreferrer">Node.js 官網</a>下載widows安裝程式，均按下一步完成安裝
+
+
+
+### ✅安裝 n8n
+
+cmd至命令列模式，執行指令：
+
+**npm install -g n8n** 
+
+
+
+指令說明：
+
+-g：是 global 的簡寫，表示要進行全域安裝
+
+**全域安裝會讓你在任何目錄下直接執行 n8n 來啟動服務**
+
+
+
+n8n 會被安裝到 %USERPROFILE%\\AppData\\Roaming\\npm\\node\_modules
+
+
+**n8n的使用者資料、工作流程（workflows）、憑證（credentials）、執行記錄會被儲存在** %USERPROFILE%\\.n8n\\
+
+如果你忘記登入帳密刪除此資料夾即可重新登入
+
+如果要備份或移機時，只要完整備份這個資料夾即可，之後在另一台電腦同樣放置此資料夾並啟動 n8n，資料就能完整繼續使用。
+
+
+
+%USERPROFILE% 表示使用者的主目錄路徑，一般是：
+
+C:\\使用者\\使用者帳號名稱
+
+例如，如果你的使用者帳號是 "mary"，那 %USERPROFILE% 就等同於：
+
+C:\\使用者\\mary
+
+
+
+
+
+### ✅執行 n8n
+
+執行n8n之前建議先在命令列設定2個環境變數（或先設於windows系統變數內)
+在命令列執行：
+
+
+
+1. **set N8N\_RUNNERS\_ENABLED=true**
+
+   n8n官方建議啟動runners功能的開關
+   
+2. **set NODE\_OPTIONS=--dns-result-order=ipv4first**
+
+  告訴 Node.js 在 DNS 查找時，優先處理 IPv4 地址，有助於避免因優先解析 IPv6 而導致的連線問題
+
+
+
+
+
+接續，你可以在任何目錄下直接輸入n8n來啟動服務
+
+
+
+### ✅更新 n8n
+
+執行以下指令更新到最新的穩定版：
+
+npm update -g n8n
+
+
+
+
+
